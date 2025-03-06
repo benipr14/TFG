@@ -16,13 +16,15 @@ db = cliente["TFG"]
 coleccion_jugadores = db["jugadores"]
 
 # Buscar un jugador por nombre
-jugador = coleccion_jugadores.find_one({"nombre": "Raphinha"})
+jugador = coleccion_jugadores.find_one({"nombre": "Juan Iglesias"})
 
 # Verificar si se encontró el jugador
 if jugador:
 
     mapa_calor_lista = jugador["mapa_calor"]
     mapa_calor_df = pd.DataFrame(mapa_calor_lista)
+    # mapa_calor_df['x'] = 100 - mapa_calor_df['x']
+    # mapa_calor_df['y'] = 100 - mapa_calor_df['y']
 
     colors = [(0, "white"), (0.5, "orange"), (1, "red")]
     custom_cmap = LinearSegmentedColormap.from_list("custom_cmap", colors)
@@ -36,7 +38,7 @@ if jugador:
                 levels=100,
                 thresh=0.08,
                 zorder=-1,
-                bw_adjust=0.13,
+                bw_adjust=0.11,
                 cmap="OrRd")
 
     plt.show() 

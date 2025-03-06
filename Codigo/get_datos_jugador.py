@@ -24,11 +24,11 @@ except Exception as e:
     exit(1)
 
 # A modificar
-id_partido = "https://www.sofascore.com/es/football/match/spain-sweden/yYcswXo#id:10834044"
-nombre_jugador = "Olga Carmona"
-posicion = "LI"
+id_partido = "https://www.sofascore.com/es/football/match/getafe-barcelona/rgbsjhb#id:12437838"
+nombre_jugador = "Domingos Duarte"
+posicion = "DFC"
 temporada = "2024/2025"
-equipo = "España"
+equipo = "Getafe"
 
 # Abrir la página
 driver.get(id_partido)
@@ -42,9 +42,7 @@ cookies.click()
 
 #Equipos local y visitante
 local = driver.find_element(By.XPATH, '(//*[@class="Text fIvzGZ"])[1]')
-print(local.text)
 visitante = driver.find_element(By.XPATH, '(//*[@class="Text fIvzGZ"])[2]')
-print(visitante.text)
 
 # API sofascore
 sofascore = ls.SofaScore()
@@ -68,7 +66,6 @@ objetivo = driver.find_element(By.XPATH, f'//span[@class="Text giHhMn" and text(
 padre = objetivo.find_element(By.XPATH, './../../../..')
 
 texto_padre = padre.text
-print(texto_padre)
 lineas = texto_padre.split('\n')
 goles = int(lineas[1]) if len(lineas) > 1 and lineas[1].isdigit() else 0
 asistencias = int(lineas[2]) if len(lineas) > 2 and lineas[2].isdigit() else 0
