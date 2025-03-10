@@ -24,11 +24,11 @@ except Exception as e:
     exit(1)
 
 # A modificar
-id_partido = "https://www.sofascore.com/es/football/match/getafe-barcelona/rgbsjhb#id:12437838"
-nombre_jugador = "Domingos Duarte"
-posicion = "DFC"
+id_partido = "https://www.sofascore.com/es/football/match/las-palmas-barcelona/rgbsCGc#id:12437859"
+nombre_jugador = "Viti Rozada"
+posicion = "LD"
 temporada = "2024/2025"
-equipo = "Getafe"
+equipo = "Las Palmas"
 
 # Abrir la página
 driver.get(id_partido)
@@ -145,7 +145,7 @@ if not jugador.empty:
         pases_clave = get_stat(jugador, 'keyPass')
         toques_balon = get_stat(jugador, 'touches')
         tiros_fuera = get_stat(jugador, 'shotOffTarget')
-        tiros_porteria = get_stat(jugador, 'onTargetScoringAttempt')
+        #tiros_porteria = get_stat(jugador, 'onTargetScoringAttempt')
         pases_largos = get_stat(jugador, 'totalLongBalls')
 
     elif posicion == "POR":

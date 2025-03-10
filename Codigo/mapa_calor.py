@@ -16,7 +16,7 @@ db = cliente["TFG"]
 coleccion_jugadores = db["jugadores"]
 
 # Buscar un jugador por nombre
-jugador = coleccion_jugadores.find_one({"nombre": "Juan Iglesias"})
+jugador = coleccion_jugadores.find_one({"nombre": "Gavi"})
 
 # Verificar si se encontró el jugador
 if jugador:
