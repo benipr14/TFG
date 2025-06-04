@@ -1,3 +1,40 @@
 \chapter{Introducción}
 
-Este proyecto es software libre, y está liberado con la licencia \cite{gplv3}.
+Este Trabajo de Fin de Grado tiene como objetivo principal la recopilación y análisis de datos relevantes de partidos de fútbol con el propósito de facilitar su predicción futura. Si bien el fútbol es un deporte caracterizado por su dinamismo y su alto grado de imprevisibilidad, este proyecto pretende reducir esa incertidumbre mediante el uso de herramientas estadísticas y tecnológicas, buscando maximizar las probabilidades de victoria de un equipo.
+
+La aplicación práctica de este trabajo se orienta principalmente a entrenadores y cuerpos técnicos, brindándoles una base objetiva que les ayude a tomar decisiones estratégicas fundamentadas, como la elección de la formación más adecuada o la alineación óptima, en función del rendimiento individual de los jugadores.
+
+Asimismo, este proyecto también puede resultar de interés para personas ajenas al ámbito profesional del fútbol, como los aficionados que desean anticipar el resultado de un encuentro por mera curiosidad, o incluso aquellos que participan en apuestas deportivas y buscan aumentar sus posibilidades de acierto mediante el análisis estadístico.
+
+\section{Motivación y contexto}
+
+Hoy en día, el fútbol se ha convertido en una de las cosas más fundamentales de la vida de muchas personas, de hecho puede llegar a influir en nuestro estado de ánimo según \cite{impact-football-mood}, las victorias o derrotas de nuestro equipo afectan drásticamente a nuestras emociones, en especial cuando vamos al estadio, haciéndonos mucho más felices cuando nuestro equipo gana inesperadamente. Esto hace que la presión que hay para entrenadores y jugadores aumente ya que son muchas las expectativas que se tienen sobre ellos independientemente de la categoría del equipo, de hecho \cite{act-footballist} afirma que la actuación individual que tenga un futbolista afecta directamente a sus relaciones interpersonales y a su actitud en el día a día, pues cuanto mejor le vaya en el terreno de juego más feliz será en su vida.
+
+Otro punto importante que genera el fútbol es su impacto económico. Según el estudio recogido en \cite{economy-football}, se ha demostrado que existe una relación clara entre el deporte y la economía de un país, y más concretamente entre el fútbol y las economías locales. Ambos crecen de forma correlativa y se influyen mutuamente, lo que muestra cómo el fútbol no solo tiene un papel social, sino también económico en muchas comunidades.
+
+En consecuencia, el fútbol puede afectar drásticamente a muchas personas, como dijo el exfutbolista Jorge Valdano: 'El fútbol es la cosa más importante entre las menos importantes'.
+En este contexto donde se le da tanta importancia al fútbol, cada equipo intenta maximizar sus resultados, bien sea dentro del campo con pérdidas de tiempo o protestas al árbitro, o bien mediante un análisis exhaustivo de los datos de tus jugadores y de los rivales, ya que un simple detalle te puede costar un partido. 
+
+Si bien es cierto que puede haber partidos de clubes o de selecciones, así como amistosos o partidos oficiales, nosotros solo nos centraremos en analizar a los clubes en partidos oficiales, por lo que cuando nos refiramos a un partido este pertenecerá a una liga doméstica de algún país, ya sea masculina o femenina. Del mismo modo que los mapas de calor permiten visualizar la influencia o concentración de un fenómeno en determinadas zonas, en este proyecto los entenderemos como representaciones gráficas del terreno de juego en las que se muestran las áreas donde un jugador ha tocado el balón. Las zonas con mayor intensidad indicarán una mayor frecuencia de intervenciones, lo que nos permitirá analizar en qué partes del campo tiene más presencia cada futbolista.
+
+Teniendo en cuenta estos datos y la creciente necesidad de los equipos por obtener buenos resultados, ha surgido una vía de desarrollo muy prometedora: la predicción de partidos mediante técnicas de machine learning. Una de las formas más efectivas que tiene un entrenador para maximizar el rendimiento de su equipo es tomar decisiones acertadas sobre la alineación antes de cada partido. Si dispone de datos que indiquen en qué zonas del campo influye más cada jugador, esto podría ser de gran ayuda a la hora de decidir quién debe ser titular y quién debe empezar desde el banquillo.
+
+Sabiendo las zonas del campo en las que ha estado cada jugador podríamos darle más importancia a unas zonas u otras en función de su ubicación y así poder predecir según las estadísticas de los jugadores, además, hasta la fecha los estudios sobre predicciones a través de mapas de calor son muy escasos por lo que es un área casi desconocida hoy en día. El uso de machine learning permite potenciar este tipo de análisis a partir de una base de datos con información detallada de partidos ya disputados. Cuantos más datos se dispongan, mayor será la capacidad del modelo para aprender y ofrecer predicciones más precisas. Por ello, una posible mejora futura de este proyecto sería ampliar esa base de datos, incorporando más partidos y detalles que permitan afinar aún más los resultados obtenidos.
+
+Uno de los posibles problemas que pueden surgir en este tipo de análisis es la aleatoriedad inherente a los partidos de fútbol. Un equipo puede realizar un mal partido y aun así conseguir la victoria, lo que dificulta las predicciones. Aunque se intenten minimizar estas variaciones mediante modelos estadísticos y de machine learning, siempre existirán encuentros impredecibles. Este tipo de incertidumbre afecta especialmente a las casas de apuestas, ya que un equipo considerado débil tendrá una cuota muy alta, pero eso no garantiza que no pueda sorprender. Al final, todo depende de las acciones puntuales de los jugadores durante el partido, algo que no se puede prever con total exactitud. Sin embargo, lo que sí podemos estimar es la probabilidad: lo más probable es que un jugador con bajo rendimiento no haga un partido excelente, aunque siempre exista una pequeña posibilidad de que ocurra.
+
+Optimizando los algoritmos que trabajan con los datos de los jugadores, podríamos llegar a tener informaciones valiosas sobre la predicción del ganador de un partido y los datos individuales de los jugadores, haciendo más fácil al entrenador la tarea de ganar partidos.
+
+\section{Objetivos}
+El objetivo principal de este TFG es la predicción de partidos de fútbol a través de las estadísticas de los futbolistas y de las zonas del campo en las que han estado mediante machine learning.
+
+Para conseguir este objetivo principal se han realizado el cumplimiento de los siguientes objetivos específicos:
+\begin{itemize}
+    \item OE1: Revisión de la literatura. Búsqueda y análisis de los estudios ya realizados sobre predicción en el mundo del fútbol.
+    \item OE2: Diseño de la base de datos. Definición de las estadísticas y los formatos a utilizar para almacenarlos en la base de datos.
+    \item OE3: Obtención de las estadísticas de los jugadores. Realización del programa para obtener de manera automatizada las estadísticas de los jugadores.
+    \item OE4: Diseño del algoritmo. Definir los pesos que se le asignan a cada zona del campo y el proceso del algoritmo para obtener ganador.
+    \item OE5: Implementación de machine learning. Implementación de un algoritmo de machine learning que, según los datos de la base de datos y el algoritmo definido anteriormente, puede definir un ganador con una probabilidad concreta. 
+    \item OE6: Obtención del rendimiento individual de cada jugador en el partido. Una vez predicho el partido, obtener la influencia de cada jugador en ese partido.
+    
+\end{itemize}
