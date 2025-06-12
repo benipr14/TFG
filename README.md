@@ -1,7 +1,7 @@
 # Trabajo de Fin de Grado: Análisis de desempeño y predicción de resultados en fútbol mediante mapas de calor
 
 ### Autor(a): Benigno Joaquín Parra Campos
-### Tutor(a)(es): Juan Luis Jiménez Laredo, Javier Medina Quero
+### Tutor(a)(es): Juan Luis Jiménez Laredo y Javier Medina Quero
 ___
 
 La documentación de este proyecto está realizada con `LaTeX`, por lo
