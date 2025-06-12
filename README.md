@@ -1,10 +1,7 @@
-# Trabajo de Fin de Grado: *Título*
+# Trabajo de Fin de Grado: Análisis de desempeño y predicción de resultados en fútbol mediante mapas de calor
 
-**Este sería el README de tu proyecto. Consulta las [instrucciones de
-instalación](INSTALL.md)
-
-### Autor(a): Nombre
-### Tutor(a)(es): Nombre(s)
+### Autor(a): Benigno Joaquín Parra Campos
+### Tutor(a)(es): Juan Luis Jiménez Laredo, Javier Medina Quero
 ___
 
 La documentación de este proyecto está realizada con `LaTeX`, por lo
