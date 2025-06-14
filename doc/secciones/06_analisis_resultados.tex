@@ -2,7 +2,7 @@
 
 Este capítulo presenta un estudio secuencial de los resultados, comenzando por la ejecución y evaluación de los algoritmos base que establecen los parámetros iniciales del modelo. En primer término, se implementa y analiza el algoritmo sin ponderación de zonas, que ofrece una línea base de rendimiento al tratar todas las áreas del campo con igual importancia. A continuación, se examina el comportamiento del algoritmo con ponderación uniforme, donde se asignan pesos estándar a cada zona, permitiendo una primera aproximación a las diferencias espaciales.
 
-Una vez establecidas estas referencias iniciales, la investigación avanza hacia un análisis más granular. Se estudia el rendimiento colectivo de los equipos examinando su influencia diferencial en las distintas zonas del campo, revelando patrones espaciales asociados al éxito deportivo. Este enfoque macro complementa el posterior análisis individual de jugadores mediante mapas de calor, que cuantifican la participación y efectividad de cada futbolista en áreas específicas.
+Una vez establecidas estas referencias iniciales, la investigación avanza hacia un análisis más granular. Se estudia el rendimiento colectivo de los equipos, examinando su influencia diferencial en las distintas zonas del campo, revelando patrones espaciales asociados al éxito deportivo. Este enfoque macro complementa el posterior análisis individual de jugadores mediante mapas de calor, que cuantifican la participación y efectividad de cada futbolista en áreas específicas.
 
 La fase culminante aplica dos algoritmos genéticos que optimizan dinámicamente la ponderación zonal, contrastando sus resultados con los modelos base iniciales. Esta estructura metodológica, de lo general a lo particular, y de los modelos simples a los complejos, permite una validación rigurosa del sistema, demostrando cómo la ponderación inteligente de zonas mejora la capacidad predictiva respecto a los enfoques no ponderados.
 
@@ -99,9 +99,9 @@ A continuación, se presenta el mapa de calor de la extrema izquierda que entró
     \label{fig:etiqueta-imagen}
 \end{figure}
 
-Como se observa, esta futbolista no fue tan dominante en las áreas relativas a su posición, de hecho, la extrema titular domina en más zonas y con más intensidad que ella. Esta información puede ser de gran utilidad para el entrenador a la hora de comparar futbolistas y tomar decisiones respecto a las alineaciones.
+Como se observa, esta futbolista no fue tan dominante en las áreas relativas a su posición; de hecho, la extrema titular domina en más zonas y con más intensidad que ella. Esta información puede ser de gran utilidad para el entrenador a la hora de comparar futbolistas y tomar decisiones respecto a las alineaciones.
 
-A continuación, se presenta el mapa de calor de una jugadora que desempeña el rol de lateral derecha, recordemos que la zonas en rojo reflejan que las estadísticas de la futbolista en el partido superan en su totalidad al del equipo rival en esa zona:
+A continuación, se presenta el mapa de calor de una jugadora que desempeña el rol de lateral derecha. Recordemos que las zonas en rojo reflejan que las estadísticas de la futbolista en el partido superan en su totalidad a las del equipo rival en esa zona:
 
 \begin{figure}[H]
     \centering
@@ -121,7 +121,7 @@ A continuación, se presenta un último ejemplo correspondiente a una defensa ce
     \label{fig:etiqueta-imagen}
 \end{figure}
 
-En este partido, se puede inferir que la defensa central por la derecha tuvo un desempeño deficiente, dado que no logró imponerse en las zonas centrales de la defensa, y solo mostró cierta efectividad en los laterales. Esta situación podría llevar al entrenador a concluir que la jugadora se vio obligada a salir de su posición habitual para brindar apoyo defensivo a las laterales, en especial al lateral izquierdo.
+En este partido, se puede inferir que la defensa central por la derecha tuvo un desempeño deficiente, dado que no logró imponerse en las zonas centrales de la defensa, y sólo mostró cierta efectividad en los laterales. Esta situación podría llevar al entrenador a concluir que la jugadora se vio obligada a salir de su posición habitual para brindar apoyo defensivo a las laterales, en especial al lateral izquierdo.
 
 Estas interpretaciones son ejemplos de cómo un entrenador puede analizar distintas situaciones tácticas del juego, tales como coberturas, presión alta o ataques por las bandas. Asimismo, este análisis puede profundizarse para comprender el estilo de juego del rival. En definitiva, esta técnica ofrece una herramienta valiosa para que el cuerpo técnico prepare el partido de manera más efectiva.
 
