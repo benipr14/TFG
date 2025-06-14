@@ -1,9 +1,9 @@
-\chapter{Análisis y diseño del problema}
- 
-Para este TFG se quiere conseguir una predicción en el mundo del fútbol para poder decir con cierta seguridad el ganador de un partido. Para ello, se ha diseñado un algoritmo que utiliza las estadísticas de los futbolistas, entre ellos su mapa de calor, para predecir el ganador, y después, respaldar ese resultado con una base de datos con los resultados de partidos ya jugados.
+\chapter{Análisis del problema y diseño de la solución}
+
+Para este TFG se quiere conseguir una predicción en el mundo del fútbol para poder decir con cierta seguridad el ganador de un partido. Para ello, se ha diseñado un algoritmo que utiliza las estadísticas de los futbolistas, entre ellas su mapa de calor, para predecir el ganador, y después, respaldar ese resultado con una base de datos con los resultados de partidos ya jugados.
 
 \section*{Definición del algoritmo}
-Este algoritmo presenta un modelo analítico para predecir el resultado de un partido de fútbol, basado en las estadísticas individuales de los jugadores y de sus mapas de calor. Se separan las estadísticas en categorías constructiva y destructiva, se normalizan y se ponderan según la distribución espacial de cada jugador en el campo, dividiendo el campo en zonas con distintos pesos. El modelo evalúa la ventaja en cada zona mediante una simetría entre zonas ofensivas y defensivas, para finalmente construir un score final que permite definir el ganador del partido. Más adelante, mediante un algoritmo genético, se intentará optimizar los pesos que se le dan a cada zona para intentar obtener el máximo rendimiento posible.
+Este algoritmo presenta un modelo analítico para predecir el resultado de un partido de fútbol, basado en las estadísticas individuales de los jugadores y de sus mapas de calor. Se separan las estadísticas en categorías constructivas y destructivas, se normalizan y se ponderan según la distribución espacial de cada jugador en el campo, dividiendo el campo en zonas con distintos pesos. El modelo evalúa la ventaja en cada zona mediante una simetría entre zonas ofensivas y defensivas, para finalmente construir un score final que permite definir el ganador del partido. Más adelante, mediante un algoritmo genético, se intentará optimizar los pesos que se le dan a cada zona para intentar obtener el máximo rendimiento posible.
 
 \section{Base de datos}
 En el ámbito del análisis deportivo, especialmente en el fútbol, resulta de gran interés predecir el resultado de un partido de fútbol a partir de datos complejos que van más allá del simple marcador. En este proyecto se parte de una base de datos de partidos de la liga española, tanto femenina como masculina, en la que se dispone de tres tipos de información:
@@ -15,7 +15,7 @@ En el ámbito del análisis deportivo, especialmente en el fútbol, resulta de g
     
 \end{itemize}
 
-Para la implementación del sistema se ha optado por el uso de MongoDB como sistema de gestión de bases de datos no relacional debido a su flexibilidad y facilidad con el tratamiento de los datos. Aunque también se ha hecho uso de MongoDB Compass como interfaz gráfica debido a que todo es mucho más intuitivo y fácil de mostrar.
+Para la implementación del sistema se ha optado por el uso de MongoDB como sistema de gestión de bases de datos no relacional debido a su flexibilidad y facilidad con el tratamiento de los datos. Aunque también se ha hecho uso de MongoDB Compass como interfaz gráfica, debido a que todo es mucho más intuitivo y fácil de mostrar.
 
 Para el almacenamiento de los partidos ya jugados se han almacenado los atributos de local, visitante, temporada y el ganador del partido. No se ha visto necesario almacenar el número de goles, pues no nos interesa saber por cuánto se ha ganado el partido, sino quién lo ha ganado. La descripción de los atributos es la siguiente:
 
@@ -43,11 +43,11 @@ También es importante aclarar que en el fútbol español, para diferenciar a lo
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{plantilla-TFG-ETSIIT/doc/imagenes/BD_partido.png}
-    \caption{Entrada de un partido en MongoDB Compass}
+    \caption{Entrada de partido en MongoDB Compass}
     \label{fig:etiqueta-imagen}
 \end{figure}
 
-Después, para cada partido se almacenan las estadísticas individuales de cada futbolista de ese partido concreto, eso incluye datos básicos para todos como el nombre, equipo, rival, posición, condición de local o visitante y su mapa de calor. También se almacenan otras más concretas que han sido seleccionadas según \cite{just-estadisticas}, que considera que esas son las más relevantes de los partidos. Los datos básicos de los jugadores son estos:
+Después, para cada partido se almacenan las estadísticas individuales de cada futbolista de ese partido concreto, eso incluye datos básicos para todos como el nombre, equipo, rival, posición, condición de local o visitante y su mapa de calor. También se almacenan otras más concretas que han sido seleccionadas según el criterio de Sofascore \cite{just-estadisticas}, que considera que esas son las más relevantes de los partidos. Los datos básicos de los jugadores son estos:
 
 \begin{table}[H]
     \centering
@@ -103,6 +103,10 @@ Y las estadísticas específicas que se almacenan son las siguientes:
         \hline
         Pases & Número de pases exitosos que dio el futbolista en el partido \\
         \hline
+        Pases clave & Número de pases clave exitosos que dio el futbolista en el partido \\
+        \hline
+        Regates & Número de regates exitosos que hizo el futbolista en el partido \\
+        \hline
         Duelos ganados & Número de duelos que ganó el futbolista en el partido \\
         \hline
         Acciones defensivas & Número de acciones defensivas que hizo el futbolista en el partido \\
@@ -126,26 +130,26 @@ Un ejemplo implementado desde MongoDB Compass sería:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{plantilla-TFG-ETSIIT/doc/imagenes/BD_futbolista.png}
-    \caption{Ejemplo almacenamiento de futbolista}
+    \caption{Ejemplo almacenamiento de futbolista en BD}
     \label{fig:etiqueta-imagen}
 \end{figure}
 
-Para el mapa de calor se almacena como una matriz donde cada entrada tiene 2 coordenadas x e y,  que indican dónde el futbolista tocó el balón dentro del terreno de juego.
+Para el mapa de calor se almacena como una matriz donde cada entrada tiene 2 coordenadas x e y,  que indican dónde tocó el balón el futbolista dentro del terreno de juego.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{plantilla-TFG-ETSIIT/doc/imagenes/BD_mapa_calor.png}
-    \caption{Ejemplo almacenamiento de mapa de calor}
+    \caption{Ejemplo almacenamiento de mapa de calor en BD}
     \label{fig:etiqueta-imagen}
 \end{figure}
 
-Todos estos datos se han sacado de la web de Sofascore \cite{Sofascore}.
+Todos los datos empleados en este trabajo han sido obtenidos de la página web de Sofascore \cite{Sofascore}. Cabe señalar que dichos datos están protegidos por derechos de autor y no han sido liberados para su uso público ni académico.
 
 \section{Planteamiento del problema}
 El objetivo es desarrollar una expresión analítica basada en sumatorios y ponderaciones que, usando únicamente las estadísticas normalizadas y los mapas de calor, determine el resultado del partido. La idea central es que la aportación de cada equipo se obtenga a partir de la suma de las contribuciones de sus jugadores en distintas zonas del campo, comparándose de forma simétrica las zonas de ataque de un equipo con las zonas defensivas del rival. Para ello, se van a seguir los siguientes pasos:
 
 \begin{enumerate}
-    \item \textbf{Separación de las estadísticas por naturaleza ofensiva y defensiva}: Cada jugador posee acciones que favorecen la creacion de juego (constructivas) y acciones que impiden el avance del rival (destructivas)
+    \item \textbf{Separación de las estadísticas por naturaleza ofensiva y defensiva}: Cada jugador posee acciones que favorecen la creacion de juego (constructivas) y acciones que impiden el avance del rival (destructivas). Las acciones consideradas constructivas son: asistencias, tiros, pases, pases clave, regates y duelos ganados. Las acciones defensivas son: acciones defensivas, despejes, recuperaciones, entradas exitosas y paradas.
     \item \textbf{Normalización de las estadísticas}: Todas las estadísticas se normalizan a valores entre 0 y 1, donde 0 indica que la acción no se realizó durante el partido y 1 indica que el jugador fue el máximo ejecutor de esa acción.
     \item \textbf{Impacto espacial a través de heatmaps}: cada jugador tiene un mapa de calor. Se define:
     \begin{itemize}
@@ -229,7 +233,7 @@ jugadores en cada zona $j$:
 Esto permite obtener, para cada zona, un indicador global de la capacidad ofensiva y
 defensiva del equipo, considerando la distribución espacial de la actividad.
 
-\section{Evaluación de la ventaja zonal y cálculo del socre global}
+\section{Evaluación de la ventaja zonal y cálculo del score global}
 \subsubsection*{Evaluación de las zonas de ataque y defensa}
 
 Para evaluar la ventaja de un equipo se comparan las aportaciones en las zonas correspondientes:
@@ -264,23 +268,22 @@ La predicción del resultado del partido se basa en el valor de S:
     \item Si $|S| \leq \delta$, se predice empate.
 \end{itemize}
 
-El parámetro $\delta$ es un umbral pequeño que se ajusta para tener en cuenta variaciones o
-incertidumbres en la estimación, en este caso se ha decidido, tras varias pruebas hechas a mano, que el valor sea 2.
+El parámetro $\delta$ es un umbral pequeño que se ajusta para tener en cuenta variaciones o incertidumbres en la estimación; en este caso, se ha decidido, tras varias pruebas hechas a mano, que el valor sea 2.
 
 \section{Algoritmo genético}
 En el contexto actual de creciente complejidad en la resolución de problemas computacionales, los algoritmos evolutivos han ganado relevancia como herramientas eficaces para abordar tareas que presentan un elevado grado de dificultad, especialmente aquellas que no pueden resolverse de forma óptima mediante métodos deterministas tradicionales. Entre estos algoritmos, los algoritmos genéticos destacan por su capacidad para encontrar soluciones aproximadas de alta calidad en espacios de búsqueda amplios.
 
 Inspirados en los principios de la evolución natural propuestos por Charles Darwin, los algoritmos genéticos simulan procesos como la selección natural, el cruce genético y la mutación para evolucionar una población de posibles soluciones hacia un óptimo. Gracias a su carácter exploratorio y adaptativo, los algoritmos genéticos han sido aplicados con éxito en diversas áreas, como la optimización de funciones, el diseño de redes neuronales, la planificación de rutas o la programación automática.
 
-El objetivo del algoritmo genético aplicado a mi proyecto es tratar de encontrar unos vectores de pesos de ataque y defensa adecuados para ponderar las distintas zonas del campo, ya que hasta ahora se había elegido de manera manual, aunque con cierta lógica.
+El objetivo del algoritmo genético aplicado a mi proyecto es tratar de encontrar unos vectores de pesos de ataque y defensa adecuados para ponderar las distintas zonas del campo, ya que hasta ahora se habían elegido de manera manual, aunque con cierta lógica.
 
-Para implementarlo, los individuos de la población estarían formados por los vectores de ataque y defensa unidos en uno solo, y el objetivo sería maximizar según la función de evaluación que se basa en ejecutar el vector en todos los partidos de la base de datos, dando un porcentaje de acierto del vector. Para ello se utilizan distintos atributos de población, tasa de mutación y número de generaciones, y se prueban las combinaciones de todos para quedarnos con la mejor. Las especificaciones de los atributos y los resultados de las ejecuciones se pueden ver en la siguiente sección.
+Para implementarlo, los individuos de la población estarían formados por los vectores de ataque y defensa unidos en uno solo, y el objetivo sería maximizar según la función de evaluación que se basa en ejecutar el vector en todos los partidos de la base de datos, dando un porcentaje de acierto del vector. Para ello se utilizan distintos atributos de población, tasa de mutación y número de generaciones, y se prueban las combinaciones de todos para quedarnos con la mejor. Las especificaciones de los atributos y su implementación se pueden ver en la sección 5.4, Algoritmo genético.
 
 
 \subsection*{Otros algoritmos}
-Se ha implementado también el mismo algoritmo genético pero con $\delta$, es decir, se puede predecir el vector de pesos y $\delta$, que es el valor que permite definir a partir de dónde se decide el ganador del partido.
+Se ha implementado también el mismo algoritmo genético, pero con $\delta$, es decir, se puede predecir el vector de pesos y $\delta$, que es el valor que permite definir a partir de dónde se decide el ganador del partido, que hasta ahora había sido puesto a 2 de manera manual. Las especificaciones de los atributos y su implementación se pueden ver en la sección 5.5, Algoritmo genético con $\delta$.
 
-Por último, se ha implementado un algoritmo donde no se tiene en cuenta el mapa de calor de los futbolistas con el objetivo de mostrar la importancia de estos en el resultado de la predicción.
-
+Por último, se ha implementado un algoritmo donde no se tiene en cuenta el mapa de calor de los futbolistas con el objetivo de mostrar la comparación de los resultados cuando estos no se usan.
+Su implementación se puede consultar en la sección 5.2, Algoritmo sin pesos,
 
 

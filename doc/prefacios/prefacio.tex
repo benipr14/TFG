@@ -12,11 +12,17 @@ Benigno\\
 %\vspace{0.7cm}
 
 \vspace{0.5cm}
-\noindent\textbf{Palabras clave}: \textit{predicción, fútbol, mapa de calor, estadísticas, futbolistas, rendimiento futbolista, machine learning}
+\noindent\textbf{Palabras clave}: \textit{predicción, fútbol, mapa de calor, estadísticas, futbolistas, rendimiento futbolista, \textit{machine learning}}
 \vspace{0.7cm}
 
 \noindent\textbf{Resumen}\\
-Este TFG tiene como objetivo la predicción de partidos de fútbol, es decir, determinar quién gana, empata o pierde un partido, así como mostrar el rendimiento de cada jugador en ese partido mediante machine learning. Todo ello con el objetivo de intentar maximizar el rendimiento de un equipo de fútbol a través de los conocimientos otorgados al entrenador sobre su equipo. Para determinar quién gana el partido se utilizan las estadísticas de los jugadores almacenadas en la base de datos, y su mapa de calor, que indica en qué zonas del campo ha estado, posteriormente se define el ganador del partido haciendo uso de algoritmos genéticos. Después, se comprueba la seguridad del resultado con otra base de datos donde están almacenados más de 200 partidos. Por último, se consigue el rendimiento de cada jugador comparando sus estadísticas individuales con las del rival, dando así un mapa de calor resultante con su influencia en el juego.
+Este Trabajo de Fin de Grado (TFG) desarrolla un modelo analítico enfocado en la predicción post-mortem del resultado de partidos de fútbol ya disputados (victoria, empate o derrota), así como en la evaluación detallada del rendimiento individual de los jugadores mediante la integración de estadísticas individuales y mapas de calor. Para ello, se emplean bases de datos con información específica sobre las acciones individuales de cada jugador y la distribución espacial de su participación durante el juego.
+
+La metodología planteada comienza por una solución analítica basada en la combinación ponderada de diversas estadísticas individuales y la información espacial obtenida mediante mapas de calor, generando así una métrica global que determina la ventaja competitiva de un equipo frente al rival. Los parámetros empleados en esta solución analítica son posteriormente optimizados utilizando algoritmos genéticos con el objetivo de maximizar la precisión predictiva del modelo, alcanzando una precisión del 87\%, significativamente superior al 33\% que se obtendría mediante una selección aleatoria.
+
+La validez del modelo se verifica con una base de datos independiente que contiene resultados reales de más de 200 partidos, lo que permite asegurar su fiabilidad y robustez. Asimismo, el modelo facilita la evaluación y visualización del desempeño individual de los futbolistas a través de mapas de calor resultantes que comparan su influencia directa frente a la del adversario.
+
+De este modo, este trabajo puede proporcionar a un cuerpo técnico una herramienta objetiva y eficaz para mejorar la toma de decisiones estratégicas y optimizar el rendimiento colectivo del equipo mediante una evaluación precisa y fundamentada del desempeño individual y grupal.
 
 \cleardoublepage
 
@@ -29,11 +35,17 @@ heat maps}\\
 	Benigno\\
 \end{center}
 \vspace{0.5cm}
-\noindent\textbf{Keywords}: \textit{prediction, football, heatmap, statistics, football players, player performance, machine learning}
+\noindent\textbf{Keywords}: \textit{prediction, football, heatmap, statistics, football players, player performance, \textit{machine learning}}
 \vspace{0.7cm}
 
 \noindent\textbf{Abstract}\\
-This Bachelor’s Thesis aims to predict football matches, determine who wins, draws, or loses, and display the performance of each player in the match through machine learning. All of this is done with the goal of maximizing a football team's performance by providing the coach with insights about their team. To determine the outcome of a match, player statistics stored in the database are used, along with their heatmaps, which indicate the areas of the field they have occupied. The winner of the match is then defined using genetic algorithms. Afterwards, the reliability of the result is checked against another database containing data from more than 200 matches. Finally, each player's performance is evaluated by comparing their individual statistics with those of their opponent, resulting in a heat map showing their influence on the game.
+This Bachelor's Thesis (TFG) develops an analytical model focused on the post-mortem prediction of the outcome of already played football matches (win, draw, or loss), as well as a detailed evaluation of individual player performance through the integration of individual statistics and heatmaps. To achieve this, databases containing specific information about each player's individual actions and the spatial distribution of their participation during the match are used.
+
+The proposed methodology begins with an analytical solution based on the weighted combination of various individual statistics and spatial information obtained from heatmaps, thereby generating a global metric that determines the competitive advantage of one team over the other. The parameters used in this analytical solution are later optimized using genetic algorithms, with the objective of maximizing the model's predictive accuracy—achieving an accuracy of 87\%, significantly higher than the 33\% expected from random selection.
+
+The model’s validity is verified using an independent database containing real results from over 200 matches, ensuring its reliability and robustness. Furthermore, the model enables the evaluation and visualization of individual player performance through resulting heatmaps that compare their direct influence against that of their opponents.
+
+In this way, the project provides coaching staff with an objective and effective tool to enhance strategic decision-making and optimize team performance through a precise and well-founded evaluation of both individual and collective contributions.
 
 \cleardoublepage
 
@@ -41,32 +53,45 @@ This Bachelor’s Thesis aims to predict football matches, determine who wins, d
 
 \noindent\rule[-1ex]{\textwidth}{2pt}\\[4.5ex]
 
-D. \textbf{Tutora/e(s)}, Profesor(a) del ...
+D. \textbf{Juan Luis Jiménez Laredo} y D. \textbf{Javier Medina Quero}, Profesores del Departamento Ingeniería de Computadores, Automática y Robótica de la Universidad de Granada.
+
+
 
 \vspace{0.5cm}
 
-\textbf{Informo:}
+\textbf{Informan:}
 
 \vspace{0.5cm}
 
-Que el presente trabajo, titulado \textit{\textbf{Chief}},
-ha sido realizado bajo mi supervisión por \textbf{Estudiante}, y autorizo la defensa de dicho trabajo ante el tribunal
+Que el presente trabajo, titulado \textit{\textbf{Análisis de desempeño y predicción de resultados en fútbol mediante mapas de calor}},
+ha sido realizado bajo su supervisión por \textbf{Benigno Joaquín Parra Campos}, y autorizamos la defensa de dicho trabajo ante el tribunal
 que corresponda.
 
 \vspace{0.5cm}
 
-Y para que conste, expiden y firman el presente informe en Granada a Junio de 2025.
+Y para que conste, expiden y firman el presente informe en Granada a 16 de junio de 2025.
 
 \vspace{1cm}
 
-\textbf{El/la director(a)/es: }
+\textbf{Los directores:}
 
 \vspace{5cm}
 
-\noindent \textbf{(nombre completo tutor/a/es)}
-
+\begin{center}
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \rule{6cm}{0.4pt}\\[1ex]
+    \textbf{Juan Luis Jiménez Laredo}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \rule{6cm}{0.4pt}\\[1ex]
+    \textbf{Javier Medina Quero}
+  \end{minipage}
+\end{center}
 \chapter*{Agradecimientos}
-
+A mis padres, por apoyarme desde el primer momento que empecé este TFG. A mi hermano, que me animó cuando más lo necesitaba. A mis amigos que me apoyaron incondicionalmente. A mis tutores, que me ayudaron de manera desinteresada y son los responsables de que esto sea posible.
 
 
 

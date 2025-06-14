@@ -1,0 +1,41 @@
+\chapter{Conclusiones y trabajos futuros}
+
+\section{Conclusiones}
+
+En conclusión, este trabajo de Fin de Grado (TFG) tenía como objetivo la predicción de partidos de fútbol mediante el uso de \textit{machine learning}, haciendo uso de una base de datos con las estadísticas y mapas de calor de los futbolistas, dándonos una visión espacial del rendimiento de cada futbolista. Se ha conseguido una precisión de hasta un 87.2\%, algo que se puede considerar exitoso, ya que el fútbol es un deporte muy impredecible.
+
+Para completar este objetivo general se ha tenido que cumplir con la realización de los objetivos específicos indicados en el capítulo 1:
+
+\begin{itemize}
+    \item OE1: Diseñar una métrica global que combine estadísticas individuales y distribución
+    espacial de la actividad de los jugadores para cuantificar la ventaja competitiva de un
+    equipo. Este objetivo se ha completado al 100\%, se ha hecho un diseño completo explicado en el capítulo 4, Análisis del problema y diseño de la solución.
+
+    \item OE2: Optimizar los parámetros de dicha métrica mediante técnicas de \textit{machine learning}. Este objetivo se ha completado al 100\%, utilizando algoritmos genéticos que maximizaban estos parámetros, se puede ver los resultados en el capítulo 5, Implementación.
+
+    \item OE3: Validar la fiabilidad y robustez del modelo con una base de datos independiente de
+    más de 200 partidos ya disputados. Este objetivo se ha completado al 100\%, todos los algoritmos han sido ejecutados sobre esta base de datos, se puede ver en el capítulo 5, Implemetación.
+
+    \item OE4: Generar mapas de calor comparativos que permitan evaluar la influencia individual
+    de los futbolistas y facilitar el análisis táctico. Este objetivo se ha cumplido al 100\%, se han generado y analizado los resultados de estos mapas en el capítulo 6, Análisis de resultados.
+
+    \item OE5: Proponer directrices prácticas para el cuerpo técnico basadas en los resultados del modelo, orientadas a mejorar la estrategia de juego y la selección de alineaciones. Este objetivo se ha cumplido al 100\%, proponiendo análisis sobre los mapas tanto de los equipos como de los futbolistas individualmente, se puede ver en el capítulo 6, Análisis de resultados.
+    
+\end{itemize}
+
+En este TFG también se ha apoyado la inclusión del fútbol femenino, formando parte de la base de datos y analizando a algunas jugadoras en partidos concretos, como en el capítulo 6, Análisis de resultados.
+
+Como valoración personal, estoy satisfecho con este TFG ya que el fútbol es un deporte que me apasiona y que sigo asiduamente. Tampoco me ha costado mucho estar involucrado con el proyecto  por esos motivos, además de que he aumentado mis conocimientos futbolísticos. En cuanto a lo académico, he aprendido sobre los diferentes mecanismos de \textit{machine learning}, especialmente de los algoritmos genéticos, que nunca los había dado en la carrera. También he aprendido a organizarme mejor en el tiempo y a hacer el código de más calidad y no tan desordenado. En conclusión, estoy satisfecho con el trabajo realizado y con lo aprendido.
+
+\section{Trabajos futuros}
+Aunque se hayan cumplido todos los objetivos de este TFG, tanto específicos como el general, todavía hay muchas opciones para continuar desarrollando.
+
+En este proyecto se muestra la actuación individual de cada jugador con el objetivo de facilitar el análisis por parte del entrenador. No obstante, este proceso podría automatizarse, permitiendo que una máquina genere de forma autónoma la mejor formación y alineación posible en función del rival. Además, el análisis podría volverse más preciso si se divide el partido en intervalos, por ejemplo, de 15 minutos, evaluando el rendimiento del equipo en cada uno de ellos.
+
+Este tipo de enfoque es muy común en el fútbol moderno. Por ejemplo, un entrenador puede ordenar a su centrocampista izquierdo que se enfoque en realizar coberturas defensivas durante la primera media hora del partido, si sabe que el rival suele atacar por ese costado al inicio. Pasado ese tiempo, puede pedirle que colabore en la construcción del juego en el centro del campo. Teniendo en cuenta estas variaciones estratégicas, un sistema automatizado podría sugerir la posición más adecuada para cada jugador en cada tramo del partido, ayudando así al entrenador a planificar con mayor precisión.
+
+En cuanto a la precisión de la predicción, se podría llegar a simular un partido con agentes, esto es, teniendo en cuenta las estadísticas de los futbolistas como pase, tiro o regate y simular un partido que refleje unas características parecidas pero siempre con un rango de aleatoriedad. Aunque sí es cierto que esto es algo que ya hacen algunos videojuegos como Top Eleven, \cite{Top_eleven}, que simulan partidos de equipos e incluso se pueden ver a los jugadores moverse durante el partido, pero se podría intentar hacer de una manera mucho más precisa y con fundamento matemático.
+
+Por último, dado que ya se cuenta con las estadísticas individuales de los jugadores almacenadas, sería posible ampliar la base de datos y desarrollar un sistema de recomendación de fichajes para los equipos. Este sistema, basado en algoritmos de \textit{machine learning}, podría identificar las debilidades del equipo, por ejemplo, un bajo rendimiento en la posición de lateral derecho y, a partir de ello, buscar automáticamente en la base de datos jugadores que encajen con las necesidades específicas.
+
+Así, si un equipo cuya estrategia ofensiva se basa en el juego por las bandas cuenta con un lateral que presenta una baja efectividad en los centros, el sistema podría detectarlo y sugerir un jugador con una alta tasa de acierto en esa estadística. De esta forma, el algoritmo no solo evaluaría el rendimiento individual, sino que también analizaría el conjunto de características del equipo para identificar carencias y proponer refuerzos adecuados.

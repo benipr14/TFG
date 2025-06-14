@@ -31,6 +31,11 @@
 \usepackage{listings}
 \usepackage{xcolor}  
 
+\usepackage{todonotes}
+\usepackage{ulem}
+\newcommand{\Beni}[2][]{\todo[inline, color=purple!30, caption={ToDo - Benigno}, #1]{\begin{minipage}{\textwidth-4pt} #2\\ {\bf  -- Benigno} \end{minipage}}}
+\newcommand{\Juanlu}[2][]{\todo[inline, color=red!20, caption={ToDo - Juanlu}, #1]{\begin{minipage}{\textwidth-4pt} #2 {\bf -- Juanlu}\end{minipage}}}
+
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{gray!10},
     commentstyle=\color{green!50!black},
@@ -60,7 +65,7 @@
 \pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
 \fancyhead[L]{} % Empty left header
 \fancyhead[C]{} % Empty center header
-\fancyhead[R]{Benigno} % My name
+\fancyhead[R]{\nouppercase{\leftmark}} % Sección actual a la derecha
 \fancyfoot[L]{} % Empty left footer
 \fancyfoot[C]{} % Empty center footer
 \fancyfoot[R]{\thepage} % Page numbering for right footer
@@ -118,9 +123,9 @@
 
 	% Trabajos futuros
 
-        \input{secciones/06_conclusiones}
+        \input{plantilla-TFG-ETSIIT/doc/secciones/06_analisis_resultados}
 
-
+        \input{plantilla-TFG-ETSIIT/doc/secciones/07_conclusiones}
 	
 	\newpage
 	\bibliography{bibliografia}
